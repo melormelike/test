@@ -21,8 +21,10 @@ jobs:
     - id: commit 
       uses: pr-mpt/actions-commit-hash@v1
       with:
+       run: echo ${{ github.event.workflow_run.head_sha }}
        commit: "${{ github.event.workflow_run.head_sha }}"
        prefix: "sha-"
+       
     - name: Build image for commit
       uses: docker/build-push-action@v2
       with:
