@@ -5,6 +5,7 @@ name: Manual workflow
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
+  push:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
@@ -36,3 +37,9 @@ jobs:
           tags: ${{ steps.commit.outputs.short }}
     - name: print hash
       run: echo COMMIT_HASH.slice(0, 7)
+    - name: Check outputs
+      run: echo |
+        ${{ steps.vars.outputs.sha_short }}
+        "::set-output name=sha_short::$(git rev-parse --short ${{ github.event.pull_request.head.sha }})"
+    - name: Step
+      run: echo ${GITHUB_SHA::7}
