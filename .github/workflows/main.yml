@@ -34,8 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: print commit 
-        id: commit
+      - name: print commit
         uses: pr-mpt/actions-commit-hash@v1
         with:
           commit: "${{ github.event.workflow_run.head_sha }}"
