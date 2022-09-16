@@ -7,7 +7,7 @@ name: deneme
 on:
    workflow_run:
       workflows: manual
-      branches: master
+      branches: main
       types: completed
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
