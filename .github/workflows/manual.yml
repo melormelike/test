@@ -18,7 +18,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:  
-    - uses: pr-mpt/actions-commit-hash@v1
+    - id: commit 
+      uses: pr-mpt/actions-commit-hash@v1
       with:
        commit: "${{ github.event.workflow_run.head_sha }}"
        prefix: "sha-"
