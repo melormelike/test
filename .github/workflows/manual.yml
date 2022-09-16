@@ -18,13 +18,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:  
-    - name: scheck steps 
-      run: echo "${{ github.event.workflow_run.head_sha }}"
-    - name: Build image for commit
-      uses: docker/build-push-action@v2
-      with:
-          push: true
-          tags: ${{ steps.commit.outputs.short }}
     - name: print hash
       run: echo COMMIT_HASH.slice(0, 7)
     - name: Check outputs
