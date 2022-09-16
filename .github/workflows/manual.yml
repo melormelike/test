@@ -19,7 +19,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:  
     - name: print hash
-      run: echo COMMIT_HASH.slice(0, 7)
+      run: echo "${{ COMMIT_HASH.slice(0, 7) }}"
     - name: Check outputs
       run: echo |
         ${{ steps.vars.outputs.sha_short }}
