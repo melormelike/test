@@ -18,12 +18,19 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   greet:
-    name: ${{ github.ref_name }} deploying - ${{ github.event.inputs.revisionKey || steps.vars.outputs.sha_short }}
+    name: ${{ github.ref_name }} deploying - ${{ github.event.inputs.revisionKey || steps.short-sha.outputs.sha }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps: 
+    - name: Step
+      id: short-sha
+      with:
+       length: 7
+    - run: echo $SHA
+      env: 
+          SHA: ${{ steps.short-sha.outputs.sha }}
     - name: Step
       run: echo ${GITHUB_SHA::7}
     - name: Set outputs
