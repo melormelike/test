@@ -18,7 +18,7 @@ on:
 jobs:
   # This workflow contains a single job called "greet"
   greet:
-    name: ${{ github.ref_name }} deploying - ${{ github.event.inputs.revisionKey || github.sha.short }}
+    name: ${{ github.ref_name }} deploying - ${{ github.event.inputs.revisionKey || github.short-sha }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
