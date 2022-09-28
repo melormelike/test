@@ -26,8 +26,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps: 
     - name: Parse short sha
-      uses: ./short-sha@v1.1
       id: short-sha
+      run: echo ${{ steps.short-sha.outputs.sha }}
     - name: Step
       run: echo ${GITHUB_SHA::7}
     - id: commit
